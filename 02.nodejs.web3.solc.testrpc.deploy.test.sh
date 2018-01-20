@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 02.nodejs.web3.solc.testrpc.deploy.test.sh                       #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/18/2018                                                       #
+# Updated ... 01/20/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
@@ -32,12 +32,10 @@ printf "\n"
 # Script constants                                                             #
 ################################################################################
 
-DEV_FOLDER=~/ethererum.dev
-CONTRACT_FOLDER=02.nodejs.web3.solc.testrpc.deploy.test
+CONTRACT_FOLDER=$(basename $SCRIPTNAME .sh)  # ex: 02.nodejs.web3.solc.testrpc.deploy.test
 
 printf ">> Script constants:\n"
-printf "DEV_FOLDER ............ $DEV_FOLDER\n"
-printf "CONTRACT_FOLDER ....... $CONTRACT_FOLDER\n"
+printf "CONTRACT_FOLDER ... $CONTRACT_FOLDER\n"
 printf "\n"
 
 ################################################################################
@@ -107,7 +105,7 @@ contract announcement {
     // - Uses gas
     // - Called once, when first added to the blockchain
     function announcement () public {
-        message = "Welcome to the npm/testrpc automated test.";
+        message = "Welcome to the automated test: $SCRIPTNAME";
     }
 
     // Setter (can be called from any other contract)
@@ -281,7 +279,7 @@ console.log ()
 console.log ("===================================")
 console.log ("setAnnouncement():")
 console.log ("===================================")
-tx = announcementInstance.setAnnouncement ("Good-bye from the npm/testrpc automated test.", {from: web3.eth.accounts [0]})
+tx = announcementInstance.setAnnouncement ("Goodbye from the automated test: $SCRIPTNAME", {from: web3.eth.accounts [0]})
 console.log ("tx: " + tx)
 console.log ()
 

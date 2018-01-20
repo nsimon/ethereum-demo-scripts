@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 03.truffle.testrpc.deploy.test.sh                                #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/18/2018                                                       #
+# Updated ... 01/20/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
@@ -32,10 +32,10 @@ printf "\n"
 # Script constants                                                             #
 ################################################################################
 
-CONTRACT_FOLDER=03.truffle.testrpc.deploy.test
+CONTRACT_FOLDER=$(basename $SCRIPTNAME .sh)  # ex: 03.truffle.testrpc.deploy.test
 
 printf ">> Script constants:\n"
-printf "CONTRACT_FOLDER: $CONTRACT_FOLDER\n"
+printf "CONTRACT_FOLDER ... $CONTRACT_FOLDER\n"
 printf "\n"
 
 ################################################################################
@@ -98,7 +98,7 @@ contract announcement {
     // - Uses gas
     // - Called once, when first added to the blockchain
     function announcement () public {
-        message = "Welcome to the truffle/testrpc automated test.";
+        message = "Welcome to the automated test: $SCRIPTNAME";
     }
 
     // Setter (can be called from any other contract)
@@ -214,9 +214,9 @@ module.exports = function (done) {
         });
 
         // Set message
-        app.setAnnouncement ("Good-bye from the truffle/testrpc automated test.", {from: web3.eth.accounts [0]}).then (function () {
+        app.setAnnouncement ("Goodbye from the automated test: $SCRIPTNAME", {from: web3.eth.accounts [0]}).then (function () {
             console.log ();
-            console.log ("[truffle] app.setAnnouncement ('Good-bye from the truffle/testrpc automated test.', {from: web3.eth.accounts [0]})");
+            console.log ("[truffle] app.setAnnouncement ('Goodbye from the automated test: $SCRIPTNAME', {from: web3.eth.accounts [0]})");
             console.log ();
 
             // Get current (updated) message

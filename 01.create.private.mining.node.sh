@@ -9,13 +9,16 @@
 #             Creates startnode.sh - to start the node in the foreground.      #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
-#   Creates private node folder                                                #
-#   Creates genesis.json                                                       #
+#   Creates a private node folder                                              #
+#   Creates a genesis.json                                                     #
 #   Initializes geth with the genesis block                                    #
-#   Sets PW for 3 test accounts and password.sec                               #
+#   Sets PW for 3 test accounts and saves as password.sec                      #
 #   Creates 3 test accounts (coinbase + 2)                                     #
 #   Creates password.sec                                                       #
 #   Creates startnode.sh - to start the node in the foreground                 #
+#   To start the mining node:                                                  #
+#     $ cd 01.create.private.mining.node/                                      #
+#     $ ./startnode.sh                                                         #
 ################################################################################
 
 # ex: 01.private.mining.node.sh (remove prepended ./)

@@ -1,9 +1,10 @@
 #!/bin/bash
 
+
 ################################################################################
 # Module .... 01.create.private.mining.node.sh                                 #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/18/2018                                                       #
+# Updated ... 01/20/2018                                                       #
 # Desc ...... Creates and initializes an ethereum private node folder.         #
 #             Creates startnode.sh - to start the node in the foreground.      #
 #------------------------------------------------------------------------------#
@@ -30,16 +31,16 @@ printf "\n"
 # Script constants                                                             #
 ################################################################################
 
-DEV_FOLDER=~/ethererum.dev
-NODE_FOLDER=01.create.private.mining.node
-DATA_DIR=$DEV_FOLDER/$NODE_FOLDER
+DEMO_SCRIPTS_FOLDER=$(pwd)                   # ex: /home/nsimon/ethereum-demo-scripts
+NODE_FOLDER=$(basename $SCRIPTNAME .sh)      # ex: 01.create.private.mining.node
+DATA_DIR=$DEMO_SCRIPTS_FOLDER/$NODE_FOLDER   # ex: /home/nsimon/ethereum-demo-scripts/01.create.private.mining.node
 NETWORK_IDENTIFIER=4224
 GETH_RPCPORT=8545
 GETH_PORT=30303
-GETH_IPCPATH=~/.ethereum/geth.ipc
+GETH_IPCPATH=~/.ethereum/geth.ipc            # ex: /home/nsimon/.ethereum/geth.ipc
 
 printf ">> Script constants:\n"
-printf "DEV_FOLDER ............ $DEV_FOLDER\n"
+printf "DEMO_SCRIPTS_FOLDER ... $DEMO_SCRIPTS_FOLDER\n"
 printf "NODE_FOLDER ........... $NODE_FOLDER\n"
 printf "DATA_DIR .............. $DATA_DIR\n"
 printf "NETWORK_IDENTIFIER .... $NETWORK_IDENTIFIER\n"
@@ -208,7 +209,7 @@ printf "\n"
 ################################################################################
 
 printf ">> ***************************************\n"
-printf ">> * To start the node:\n"
+printf ">> * TO START THE NODE:\n"
 printf ">> *   $ cd $NODE_FOLDER/\n"
 printf ">> *   $ ./startnode.sh\n"
 printf ">> ***************************************\n"

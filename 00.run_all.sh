@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 00.run_all.sh                                                    #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/18/2018                                                       #
+# Updated ... 01/21/2018                                                       #
 # Desc ...... Runs all of the demo scripts, each logging output to its own log.#
 #             See each script for annotated documentation.                     #
 ################################################################################

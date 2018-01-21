@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 02.nodejs.web3.solc.testrpc.deploy.test.sh                       #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/20/2018                                                       #
+# Updated ... 01/21/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #

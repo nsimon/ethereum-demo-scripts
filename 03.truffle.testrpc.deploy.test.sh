@@ -208,23 +208,30 @@ module.exports = function (done) {
         app.getAnnouncement ().then (function (message) {
             // Display current message
             console.log ();
-            console.log ("[truffle] app.getAnnouncement():");
-            console.log (message);
+            console.log ("[truffle] app.getAnnouncement ():");
             console.log ();
+            console.log ("******************************************************************");
+            console.log ("* " + message);
+            console.log ("******************************************************************");
         });
 
-        // Set message
-        app.setAnnouncement ("Goodbye from the automated test: $SCRIPTNAME", {from: web3.eth.accounts [0]}).then (function () {
+        // Update the message
+        newAnnouncement = "Goodbye from the automated test: $SCRIPTNAME"
+        fromAccount     = web3.eth.accounts [0];
+        app.setAnnouncement (newAnnouncement, {from: fromAccount}).then (function () {
             console.log ();
-            console.log ("[truffle] app.setAnnouncement ('Goodbye from the automated test: $SCRIPTNAME', {from: web3.eth.accounts [0]})");
+            console.log ("[truffle] app.setAnnouncement ('" + newAnnouncement + "', {from: " + fromAccount + "})");
             console.log ();
 
             // Get current (updated) message
             app.getAnnouncement ().then (function (message) {
                 // Display current (updated) message
                 console.log ();
-                console.log ("[truffle] app.GetAnnouncement():");
-                console.log (message);
+                console.log ("[truffle] app.GetAnnouncement ():");
+                console.log ();
+                console.log ("********************************************************************");
+                console.log ("* " + message);
+                console.log ("********************************************************************");
                 console.log ();
             });
         });

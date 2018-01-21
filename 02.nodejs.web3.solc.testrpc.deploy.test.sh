@@ -268,29 +268,35 @@ console.log ()
 // Retrieve the original message (and see that the contructor has run)
 // no transaction -- only getting the state
 console.log ("===================================")
-console.log ("getAnnouncement():")
+console.log ("getAnnouncement ():")
 console.log ("===================================")
 message = announcementInstance.getAnnouncement()
 console.log ()
-console.log ("message: " + message)
+console.log ("************************************************************************************")
+console.log ("* " + "message: " + message)
+console.log ("************************************************************************************")
 console.log ()
 
 // Update the message
+newAnnouncement = "Goodbye from the automated test: $SCRIPTNAME"
+fromAccount     = web3.eth.accounts [0];
 console.log ("===================================")
-console.log ("setAnnouncement():")
+console.log ("setAnnouncement ('" + newAnnouncement + "', {from: " + fromAccount + "}):")
 console.log ("===================================")
-tx = announcementInstance.setAnnouncement ("Goodbye from the automated test: $SCRIPTNAME", {from: web3.eth.accounts [0]})
+tx = announcementInstance.setAnnouncement (newAnnouncement, {from: fromAccount})
 console.log ("tx: " + tx)
 console.log ()
 
 // Retrieve the updated message
 // no transaction -- only getting the state
 console.log ("===================================")
-console.log ("getAnnouncement():")
+console.log ("getAnnouncement ():")
 console.log ("===================================")
 message = announcementInstance.getAnnouncement()
 console.log ()
-console.log ("message: " + message)
+console.log ("**************************************************************************************")
+console.log ("* message: " + message)
+console.log ("**************************************************************************************")
 
 EOF
 

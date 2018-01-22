@@ -3,8 +3,9 @@
 ################################################################################
 # Module .... clean.sh                                                         #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/20/2018                                                       #
-# Desc ...... Removes all output created by the eth scripts.                   #
+# Updated ... 01/21/2018                                                       #
+# Desc ...... Removes all folders and log files created by the                 #
+#             ethereum-demo-scripts.                                           #
 ################################################################################
 
 # rm all output folders

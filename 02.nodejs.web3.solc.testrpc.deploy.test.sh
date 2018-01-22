@@ -7,7 +7,6 @@
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
-#   Creates new contract folder structure on each run                          #
 #   $ npm init                                                                 #
 #   $ npm install web3@0.20.0                                                  #
 #   $ npm install solc                                                         #

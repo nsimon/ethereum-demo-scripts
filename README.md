@@ -72,7 +72,6 @@ truffle (v3.4.5 tested)
     * Write
     * Test
     * Deploy
-  * Doc at http://truffleframework.com
 
   ```
   $ sudo npm install -g truffle
@@ -83,7 +82,7 @@ truffle (v3.4.5 tested)
 
 Install to any folder.
 
-To install under your home folder into new folder **~/ethereum-demo-scripts-master**:
+To install under your home folder into new folder **~/ethereum-demo-scripts-master/**:
 ```
 $ cd ~
 $ wget https://github.com/nsimon/ethereum-demo-scripts/archive/master.zip
@@ -92,27 +91,20 @@ $ rm master.zip
 ```
 ## Running the end-to-end tests
 
-Explain how to run the automated tests for this system
+## Built with
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs) - The web framework used
-* [Maven](https://maven.apache.org) - Dependency Management
-* [ROME](https://rometools.github.io/rome) - Used to generate RSS Feeds
-
-## Versioning
-
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Geth](https://maven.apache.org) - Dependency Management
+* [Truffle](http://truffleframework.com)
 
 ## Authors
 
-* **Neil Simon** - *Initial work* - [nsimon](https://github.com/nsimon)
+* **Neil Simon** - *Initial work* - [nsimon](https://github.com/nsimon).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-Inspired by [Getting Started with Ethereum Solidity Development](https://www.udemy.com/getting-started-with-ethereum-solidity-development) by [Sebastien Arbogast](https://www.udemy.com/user/sebastienarbogast3)
+Inspired by [Getting Started with Ethereum Solidity Development](https://www.udemy.com/getting-started-with-ethereum-solidity-development) by [Sebastien Arbogast](https://www.udemy.com/user/sebastienarbogast3).
 

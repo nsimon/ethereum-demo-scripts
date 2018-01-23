@@ -94,7 +94,7 @@ $ rm master.zip
 
 ## Demo scripts overview
 
-### 01.create.private.mining.node.sh
+* `01.create.private.mining.node.sh`
 
 Creates a local ethereum node structure and associated startnode.sh script to start the node.
 
@@ -109,7 +109,7 @@ Overview:
   * Creates password.sec.
   * Creates startnode.sh that starts the node as a foreground task that mines ether.
 
-### 02.nodejs.web3.solc.testrpc.deploy.test.sh
+* `02.nodejs.web3.solc.testrpc.deploy.test.sh`
 
 Creates, deploys, and tests a smart contract with **web3 and nodejs** on a local testrpc node.
 
@@ -142,7 +142,7 @@ Creates and runs a nodejs script that:
     * No transaction.
     * Gets the state the current message value.
 
-### 03.truffle.testrpc.deploy.test.sh
+* `03.truffle.testrpc.deploy.test.sh`
 
 Creates, deploys, and tests a smart contract with **truffle** on a local testrpc node.
 
@@ -168,7 +168,7 @@ Overview:
         * Retrieves the updated message.
   * Stops the testrpc background task.
 
-### 00.run_all.sh
+* `00.run_all.sh`
 
 Runs all of the demo scripts in order: 01, 02, and 03, each logging output to its own log file.
 
@@ -181,7 +181,7 @@ $ ./00.run_all.sh
 ```
 
 
-### clean.sh
+* `clean.sh`
 
 Removes all folders and log files created by the ethereum-demo-scripts.
 

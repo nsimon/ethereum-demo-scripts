@@ -16,7 +16,7 @@ These ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 
 
 ### Prerequisites
 
-curl (latest)
+curl
   ```
   $ sudo apt-get install curl
   ```
@@ -24,6 +24,8 @@ curl (latest)
 node.js (v8.2.1 tested)
   * Server javascript platform.
   * Includes npm - node package manager.
+  * Doc: [npm](https://docs.npmjs.com)
+  * Doc: [node.js](https://nodejs.org/dist/latest-v8.x/docs/api)
   ```
   $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   $ sudo apt-get update
@@ -32,7 +34,7 @@ node.js (v8.2.1 tested)
   $ npm -v     # verify the version
   ```
 
-geth (latest)
+geth
   * A cli that can run and operate a full ethereum node.
   * Implemented in go.
   * Mines blocks.
@@ -42,6 +44,8 @@ geth (latest)
   * Transfer funds between accounts.
   * Inspect block history.
   * Can connect to a private or public network.
+  * Doc: [geth](https://github.com/ethereum/go-ethereum/wiki/geth)
+  * Doc: [geth console](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console)
 
   ```
   $ sudo apt-get install software-properties-common 
@@ -51,23 +55,25 @@ geth (latest)
   $ geth version  # verify the version
   ```
 
-testrpc (latest)
+[testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
   * Limited, but helpful smart contract testing.
   * Emulates an Ethereum node.
   * Written in nodejs.
   * Uses the ethereum.js library.
   * Runs in memory only (no disk storage).
+  * Doc: [testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
 
   ```
   $ sudo npm install -g ethereumjs-testrpc
   $ testrpc version  # verify the version
   ```
 
-truffle (v3.4.5 tested)
+truffle framework (v3.4.5 tested)
   * A build framework for smart contract development:
     * Write
     * Test
     * Deploy
+  * Doc: [truffle framework](http://truffleframework.com)
 
   ```
   $ sudo npm install -g truffle
@@ -87,23 +93,13 @@ $ rm master.zip
 ```
 ## Running the end-to-end tests
 
-## Built with
-
-* [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* [Geth Console](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console)
-* [npm](https://docs.npmjs.com)
-* [nodejs](https://nodejs.org/dist/latest-v8.x/docs/api)
-* [testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
-* [Truffle Framework](http://truffleframework.com)
-
-
 ## Authors
 
-* **Neil Simon**
+* Neil Simon
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 

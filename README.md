@@ -16,12 +16,12 @@ These ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 
 
 ### Prerequisites
 
-curl
+curl (v7.47.0 tested)
   ```
   $ sudo apt-get install curl
   ```
 
-node.js (v8.2.1 tested)
+node.js (v8.9.0 tested)
   * Server javascript platform.
   * Includes npm - node package manager.
   * Doc: [npm](https://docs.npmjs.com)
@@ -34,7 +34,7 @@ node.js (v8.2.1 tested)
   $ npm -v     # verify the version
   ```
 
-geth
+geth (v1.7.2 tested)
   * A cli that can run and operate a full ethereum node.
   * Implemented in go.
   * Mines blocks.
@@ -55,7 +55,7 @@ geth
   $ geth version  # verify the version
   ```
 
-[testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
+testrpc (v4.1.3 tested)
   * Limited, but helpful smart contract testing.
   * Emulates an Ethereum node.
   * Written in nodejs.
@@ -93,7 +93,7 @@ $ rm master.zip
 ```
 ## Running the end-to-end tests
 
-## Authors
+## Author
 
 * Neil Simon
 

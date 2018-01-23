@@ -14,7 +14,6 @@ Each script logs to its own logfile, providing a detailed execution log.
 
 These ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 LTS. The scripts should also run in a Mac terminal, but has not been tested. Prerequisites are listed below.
 
-
 ### Prerequisites
 
 curl (v7.47.0 tested)
@@ -81,7 +80,6 @@ truffle framework (v3.4.5 tested)
   $ truffle --version  # verify the version
   ```
 
-
 ### Installation
 
 Install to any folder.
@@ -94,8 +92,7 @@ $ unzip master.zip
 $ rm master.zip
 ```
 
-
-## Running the end-to-end tests
+## Demo scripts overview
 
 ### 01.create.private.mining.node.sh
 
@@ -177,11 +174,22 @@ Runs all of the demo scripts in order: 01, 02, and 03, each logging output to it
 
 Annotated documentation is included in each script.
 
+To run all scripts in succession:
+
+```
+$ ./00.run_all.sh
+```
+
 
 ### clean.sh
 
 Removes all folders and log files created by the ethereum-demo-scripts.
 
+To run the clean script:
+
+```
+$ ./clean.sh
+```
 
 ## Author
 

@@ -26,56 +26,68 @@ curl (latest)
   ```
 
 node.js (v8.2.1 tested)
-  * Server javascript platform
-  * Includes npm - node package manager
+  * Server javascript platform.
+  * Includes npm - node package manager.
   ```
   $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   $ sudo apt-get update
   $ sudo apt-get install -y nodejs
-  $ node -v  # to test the install
-  $ npm -v   # to test the install
+  $ node -v    # verify the version
+  $ npm -v     # verify the version
   ```
 
 geth (latest)
-  * A cli that can run and operate a full ethereum node
-  * Implemented in go
-  * Mines blocks
-  * Generates ether
-  * Deploys, enables interaction with smart contracts
-  * Create accounts
-  * Transfer funds between accounts
-  * Inspect block history
-  * Can connect to a private or public network
+  * A cli that can run and operate a full ethereum node.
+  * Implemented in go.
+  * Mines blocks.
+  * Generates ether.
+  * Deploys, enables interaction with smart contracts.
+  * Create accounts.
+  * Transfer funds between accounts.
+  * Inspect block history.
+  * Can connect to a private or public network.
 
   ```
   $ sudo apt-get install software-properties-common 
   $ sudo add-apt-repository -y ppa:ethereum/ethereum
   $ sudo apt-get update
   $ sudo apt-get install ethereum
-  $ geth version  # to test the install
+  $ geth version  # verify the version
   ```
 
 testrpc (latest)
-  * Limited, but helpful smart contract testing
-  * Emulates an Ethereum node
-  * Written in nodejs
-  * Uses the ethereum.js library
-  * Runs in memory only (no disk storage)
+  * Limited, but helpful smart contract testing.
+  * Emulates an Ethereum node.
+  * Written in nodejs.
+  * Uses the ethereum.js library.
+  * Runs in memory only (no disk storage).
 
   ```
   $ sudo npm install -g ethereumjs-testrpc
-  $ testrpc version  # to test the install
+  $ testrpc version  # verify the version
   ```
 
 truffle (v3.4.5 tested)
   * A build framework for smart contract development:
-    * write
-    * test
-    * deploy
+    * Write
+    * Test
+    * Deploy
   * Doc at http://truffleframework.com
 
   ```
   $ sudo npm install -g truffle
-  $ truffle --version  # to test the install
+  $ truffle --version  # verify the version
   ```
+
+### Installing
+
+Install to any folder.
+
+To install under your home folder into new folder **~/ethereum-demo-scripts-master**:
+```
+$ cd ~
+$ wget https://github.com/nsimon/ethereum-demo-scripts/archive/master.zip
+$ unzip master.zip
+$ rm master.zip
+```
 

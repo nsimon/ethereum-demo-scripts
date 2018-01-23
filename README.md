@@ -16,8 +16,7 @@ The ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 LT
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for
-development and testing purposes.
+These instructions will help you get the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -26,7 +25,9 @@ curl (latest)
   $ sudo apt-get install curl
   ```
 
-node.js (v8.2.1 was tested)
+node.js (v8.2.1 tested)
+  * Server javascript platform
+  * Includes npm - node package manager
   ```
   $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   $ sudo apt-get update
@@ -36,7 +37,7 @@ node.js (v8.2.1 was tested)
   ```
 
 geth (latest)
-  * go-ethereum is a cli that can run and operate a full ethereum node
+  * A cli that can run and operate a full ethereum node
   * Implemented in go
   * Mines blocks
   * Generates ether
@@ -55,7 +56,7 @@ geth (latest)
   ```
 
 testrpc (latest)
-  * Limited, but helpful initial smart contract testing
+  * Limited, but helpful smart contract testing
   * Emulates an Ethereum node
   * Written in nodejs
   * Uses the ethereum.js library
@@ -66,7 +67,7 @@ testrpc (latest)
   $ testrpc version  # to test the install
   ```
 
-truffle (v3.4.5)
+truffle (v3.4.5 tested)
   * A build framework for smart contract development:
     * write
     * test

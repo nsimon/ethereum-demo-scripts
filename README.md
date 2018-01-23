@@ -22,14 +22,18 @@ development and testing purposes.
 ### Prerequisites
 
 curl (latest)
-  ```$ sudo apt-get install curl```
+  ```
+  $ sudo apt-get install curl
+  ```
 
 node.js (v8.2.1, includes npm)
-  ```$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  ```
+  $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   $ sudo apt-get update
   $ sudo apt-get install -y nodejs
   $ node -v  # to test the install
-  $ npm -v   # to test the install```
+  $ npm -v   # to test the install
+  ```
 
 geth (latest)
   . go-ethereum is a cli that can run and operate a full ethereum node
@@ -42,11 +46,13 @@ geth (latest)
   . Inspect block history
   . Can connect to a private or public network
 
-  ```$ sudo apt-get install software-properties-common 
+  ```
+  $ sudo apt-get install software-properties-common 
   $ sudo add-apt-repository -y ppa:ethereum/ethereum
   $ sudo apt-get update
   $ sudo apt-get install ethereum
-  $ geth version  # to test the install```
+  $ geth version  # to test the install
+  ```
 
 testrpc (latest)
   . Limited, but helpful initial smart contract testing
@@ -55,8 +61,10 @@ testrpc (latest)
   . Uses the ethereum.js library
   . Runs in memory only (no disk storage)
 
-  ```$ sudo npm install -g ethereumjs-testrpc
-  $ testrpc version  # to test the install```
+  ```
+  $ sudo npm install -g ethereumjs-testrpc
+  $ testrpc version  # to test the install
+  ```
 
 truffle (v3.4.5)
   . A build framework for smart contract development:
@@ -65,6 +73,8 @@ truffle (v3.4.5)
     - deploy
   . Doc at http://truffleframework.com
 
-  ```$ sudo npm install -g truffle
-  $ truffle --version  # to test the install```
+  ```
+  $ sudo npm install -g truffle
+  $ truffle --version  # to test the install
+  ```
 

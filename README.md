@@ -26,7 +26,7 @@ curl (latest)
   $ sudo apt-get install curl
   ```
 
-node.js (v8.2.1, includes npm)
+node.js (v8.2.1 was tested)
   ```
   $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   $ sudo apt-get update
@@ -36,15 +36,15 @@ node.js (v8.2.1, includes npm)
   ```
 
 geth (latest)
-  . go-ethereum is a cli that can run and operate a full ethereum node
-  . Implemented in go
-  . Mines blocks
-  . Generates ether
-  . Deploys, enables interaction with smart contracts
-  . Create accounts
-  . Transfer funds between accounts
-  . Inspect block history
-  . Can connect to a private or public network
+  * go-ethereum is a cli that can run and operate a full ethereum node
+  * Implemented in go
+  * Mines blocks
+  * Generates ether
+  * Deploys, enables interaction with smart contracts
+  * Create accounts
+  * Transfer funds between accounts
+  * Inspect block history
+  * Can connect to a private or public network
 
   ```
   $ sudo apt-get install software-properties-common 
@@ -55,11 +55,11 @@ geth (latest)
   ```
 
 testrpc (latest)
-  . Limited, but helpful initial smart contract testing
-  . Emulates an Ethereum node
-  . Written in nodejs
-  . Uses the ethereum.js library
-  . Runs in memory only (no disk storage)
+  * Limited, but helpful initial smart contract testing
+  * Emulates an Ethereum node
+  * Written in nodejs
+  * Uses the ethereum.js library
+  * Runs in memory only (no disk storage)
 
   ```
   $ sudo npm install -g ethereumjs-testrpc
@@ -67,11 +67,11 @@ testrpc (latest)
   ```
 
 truffle (v3.4.5)
-  . A build framework for smart contract development:
-    - write
-    - test
-    - deploy
-  . Doc at http://truffleframework.com
+  * A build framework for smart contract development:
+    * write
+    * test
+    * deploy
+  * Doc at http://truffleframework.com
 
   ```
   $ sudo npm install -g truffle

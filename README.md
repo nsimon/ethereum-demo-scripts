@@ -6,17 +6,13 @@ The script documentation is intended to help optimize readability, intent, and r
 
 Each script logs to its own logfile, providing a detailed execution log.
 
-__Script 1__: Creates a local ethereum node structure and associated startnode.sh script to start the node.
+**Script 1**: Creates a local ethereum node structure and associated startnode.sh script to start the node.
 
-__Script 2__: Creates, deploys, and tests a smart contract with web3 and nodejs on a local testrpc node.
+**Script 2**: Creates, deploys, and tests a smart contract with web3 and nodejs on a local testrpc node.
 
-__Script 3__: Creates, deploys, and tests a smart contract with truffle on a local testrpc node.
+**Script 3**: Creates, deploys, and tests a smart contract with truffle on a local testrpc node.
 
-The ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 LTS. The scripts should also run in a Mac terminal, but has not been tested. Prerequisites are listed below.
-
-## Getting Started
-
-These instructions will help you get the project up and running on your local machine for development and testing purposes.
+These ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 LTS. The scripts should also run in a Mac terminal, but has not been tested. Prerequisites are listed below.
 
 ### Prerequisites
 
@@ -41,8 +37,8 @@ geth (latest)
   * Implemented in go.
   * Mines blocks.
   * Generates ether.
-  * Deploys, enables interaction with smart contracts.
-  * Create accounts.
+  * Deploys and enables interaction with smart contracts.
+  * Creates accounts.
   * Transfer funds between accounts.
   * Inspect block history.
   * Can connect to a private or public network.
@@ -78,11 +74,11 @@ truffle (v3.4.5 tested)
   $ truffle --version  # verify the version
   ```
 
-### Installing
+### Installation
 
 Install to any folder.
 
-To install under your home folder into new folder **~/ethereum-demo-scripts-master/**:
+To install under your home folder: e.g. **~/ethereum-demo-scripts-master/**:
 ```
 $ cd ~
 $ wget https://github.com/nsimon/ethereum-demo-scripts/archive/master.zip
@@ -93,12 +89,17 @@ $ rm master.zip
 
 ## Built with
 
-* [Geth](https://maven.apache.org) - Dependency Management
-* [Truffle](http://truffleframework.com)
+* [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
+* [Geth Console](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console)
+* [npm](https://docs.npmjs.com)
+* [nodejs](https://nodejs.org/dist/latest-v8.x/docs/api)
+* [testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
+* [Truffle Framework](http://truffleframework.com)
+
 
 ## Authors
 
-* **Neil Simon** - *Initial work* - [nsimon](https://github.com/nsimon).
+* **Neil Simon**
 
 ## License
 

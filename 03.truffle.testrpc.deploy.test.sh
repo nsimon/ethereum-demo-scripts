@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 03.truffle.testrpc.deploy.test.sh                                #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/21/2018                                                       #
+# Updated ... 02/13/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
@@ -98,7 +98,7 @@ contract announcement {
     // - Uses gas
     // - Called once, when first added to the blockchain
     function announcement () public {
-        message = "Welcome to the automated test: $SCRIPTNAME";
+        message = "Welcome to the automated test";
     }
 
     // Setter (can be called from any other contract)
@@ -216,7 +216,7 @@ module.exports = function (done) {
         });
 
         // Update the message
-        newAnnouncement = "Goodbye from the automated test: $SCRIPTNAME"
+        newAnnouncement = "Goodbye from the automated test"
         fromAccount     = web3.eth.accounts [0];
         app.setAnnouncement (newAnnouncement, {from: fromAccount}).then (function () {
             console.log ();

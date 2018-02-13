@@ -3,7 +3,7 @@
 ################################################################################
 # Module .... 02.nodejs.web3.solc.testrpc.deploy.test.sh                       #
 # Author .... Neil Simon                                                       #
-# Updated ... 01/21/2018                                                       #
+# Updated ... 02/12/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 #------------------------------------------------------------------------------#
 # Overview:                                                                    #
@@ -104,7 +104,7 @@ contract announcement {
     // - Uses gas
     // - Called once, when first added to the blockchain
     function announcement () public {
-        message = "Welcome to the automated test: $SCRIPTNAME";
+        message = "Welcome to the automated test";
     }
 
     // Setter (can be called from any other contract)
@@ -115,7 +115,7 @@ contract announcement {
     }
 
     // Getter
-    // - No gas needed
+    // - No gas used
     function getAnnouncement () public constant returns (string) {
         return message;
     }
@@ -148,155 +148,112 @@ printf ">> Creating node commands file: announcement.node.commands.js\n"
 cat << EOF > announcement.node.commands.js
 #!/usr/bin/env node
 
-// Load node_module: web3
-Web3 = require ("web3");
-console.log ("===================================");
-console.log ("Web3:");
-console.log ("===================================");
-console.log (Web3);
-console.log ();
+function main () {
+    // Display script name and date/time
+    const now  = new Date ();
+    const path = require ("path");
+    filename   = path.basename (__filename);
+    console.log (filename + ".  " + now + ".");
+    console.log ();
 
-// Load node_module: solc
-solc = require ("solc");
-console.log ("===================================");
-console.log ("solc:");
-console.log ("===================================");
-console.log (solc);
-console.log ();
+    // Load web3
+    const Web3 = require ("web3");
+    display_results ("Web3", Web3);
 
-// Load (core) node_module: fs
-fs = require ("fs");
-console.log ("===================================");
-console.log ("fs:");
-console.log ("===================================");
-console.log (fs);
-console.log ();
+    // Load solc
+    const solc = require ("solc");
+    display_results ("solc", solc);
 
-// Load node_module: system-sleep
-sleep = require ("system-sleep");
-console.log ("===================================");
-console.log ("sleep:");
-console.log ("===================================");
-console.log (sleep);
-console.log ();
+    // Load fs
+    const fs = require ("fs");
+    display_results ("fs", fs);
 
-// Create a new instance of the Web3 object
-web3 = new Web3 (new Web3.providers.HttpProvider ("http://localhost:8545"));
-console.log ("===================================");
-console.log ("web3:");
-console.log ("===================================");
-console.log (web3);
-console.log ();
+    // Load system-sleep
+    const sleep = require ("system-sleep");
+    display_results ("sleep", sleep);
 
-// Test the web3 object, by displaying the 10 testrpc accounts
-console.log ("===================================");
-console.log ("accounts:");
-console.log ("===================================");
-accounts = web3.eth.accounts;
-console.log ();
-console.log (accounts);
-console.log ();
+    // Create new instance of the Web3 object
+    const web3 = new Web3 (new Web3.providers.HttpProvider ("http://localhost:8545"));
+    display_results ("web3", web3);
 
-// Load the smart contact source
-sourceCode = fs.readFileSync ("announcement.sol").toString();
-console.log ("===================================");
-console.log ("sourceCode:");
-console.log ("===================================");
-console.log (sourceCode);
+    // Display the 10 testrpc accounts
+    const accounts = web3.eth.accounts;
+    display_results ("accounts", accounts);
 
-// Compile the smart contract source - result is a json object with many fields
-compiledCode = solc.compile (sourceCode);
-console.log ("===================================");
-console.log ("compiledCode:");
-console.log ("===================================");
-console.log (compiledCode);
-console.log ();
+    // Load the smart contact source
+    const sourceCode = fs.readFileSync ("announcement.sol").toString();
+    display_results ("sourceCode", sourceCode);
 
-// Extract the smart contract "application binary interface" (it's api)
-contractABI = JSON.parse (compiledCode.contracts [":announcement"].interface);
-console.log ("===================================");
-console.log ("contractABI:");
-console.log ("===================================");
-console.log (contractABI);
-console.log ();
+    // Compile the smart contract source
+    const compiledCode = solc.compile (sourceCode);
+    display_results ("compiledCode", compiledCode);
 
-// Extract the smart contact byteCode - used to deploy the smart contract
-byteCode = compiledCode.contracts [":announcement"].bytecode;
-console.log ("===================================");
-console.log ("byteCode:");
-console.log ("===================================");
-console.log (byteCode);
-console.log ();
+    // Extract the smart contract "application binary interface" (it's api)
+    const contractABI = JSON.parse (compiledCode.contracts [":announcement"].interface);
+    display_results ("contractABI", contractABI);
 
-// Instantiate the smart contract object
-announcementContract = web3.eth.contract (contractABI);
-console.log ("===================================");
-console.log ("announcementContract:");
-console.log ("===================================");
-console.log (announcementContract);
-console.log ();
+    // Extract the smart contact byteCode
+    const byteCode = compiledCode.contracts [":announcement"].bytecode;
+    display_results ("byteCode", byteCode);
 
-// Deploy the smart contract to the testrpc blockchain
-console.log ("===================================");
-console.log ("announcementDeployed:");
-console.log ("===================================");
-announcementDeployed = announcementContract.new ({data: byteCode, from: web3.eth.accounts [0], gas: 4700000});
-console.log (announcementDeployed);
-console.log ();
+    // Instantiate the smart contract object
+    const announcementContract = web3.eth.contract (contractABI);
+    display_results ("announcementContract", announcementContract);
 
-// Allow the smart contract to fully deploy before continuing
-sleep (3000);
-console.log ();
+    // Deploy the smart contract to the testrpc blockchain
+    const announcementDeployed = announcementContract.new ({data: byteCode, from: web3.eth.accounts [0], gas: 4700000});
+    display_results ("announcementDeployed", announcementDeployed);
 
-// Display the address of the deployed contract
-console.log ("===================================");
-console.log ("announcementDeployed.address:");
-console.log ("===================================");
-announcementDeployed.address;
-console.log (announcementDeployed.address);
-console.log ();
+    // Allow the smart contract to fully deploy before continuing
+    sleep (3000);
+    console.log ();
 
-// Get an instance of the deployed contract
-console.log ("===================================");
-console.log ("announcementInstance:");
-console.log ("===================================");
-announcementInstance = announcementContract.at (announcementDeployed.address);
-console.log (announcementInstance);
-console.log ();
+    // Deployed contract address
+    const deployedAddress = announcementDeployed.address;
+    display_results ("deployedAddress", deployedAddress);
 
-// Retrieve the original message (and see that the contructor has run)
-// no transaction -- only getting the state
-console.log ("===================================");
-console.log ("getAnnouncement ():");
-console.log ("===================================");
-message = announcementInstance.getAnnouncement();
-console.log ();
-console.log ("************************************************************************************");
-console.log ("* " + "message: " + message);
-console.log ("************************************************************************************");
-console.log ();
+    // Announcement instance
+    const announcementInstance = announcementContract.at (deployedAddress);
+    display_results ("announcementInstance", announcementInstance);
 
-// Update the message
-newAnnouncement = "Goodbye from the automated test: $SCRIPTNAME";
-fromAccount     = web3.eth.accounts [0];
-console.log ("===================================");
-console.log ("setAnnouncement ('" + newAnnouncement + "', {from: " + fromAccount + "}):");
-console.log ("===================================");
-tx = announcementInstance.setAnnouncement (newAnnouncement, {from: fromAccount});
-console.log ("tx: " + tx);
-console.log ();
+    // Current value of announcement
+    display_results ("getAnnouncement()", announcementInstance.getAnnouncement());
 
-// Retrieve the updated message
-// no transaction -- only getting the state
-console.log ("===================================");
-console.log ("getAnnouncement ():");
-console.log ("===================================");
-message = announcementInstance.getAnnouncement();
-console.log ();
-console.log ("**************************************************************************************");
-console.log ("* message: " + message);
-console.log ("**************************************************************************************");
+    // Update the announcement
+    const newAnnouncement = "Goodbye from the automated test";
+    const fromAccount     = web3.eth.accounts [0];
+    display_results ("setAnnouncement()", newAnnouncement);
+    const tx              = announcementInstance.setAnnouncement (newAnnouncement, {from: fromAccount});
+    display_results ("tx", tx);
 
+    // Updated value of announcement
+    display_results ("getAnnouncement()", announcementInstance.getAnnouncement());
+
+    console.log ("<end>");
+    console.log ();
+}
+
+function display_results (varname, varvalue) {
+    if (typeof varvalue == "object") {
+        console.log ("===================================");
+        console.log ("%s:", varname);
+        console.log ("===================================");
+        str = JSON.stringify (varvalue, null, 4);
+        console.log ("%s", str);
+        console.log ();
+    }
+    else {
+        console.log ("===================================");
+        console.log ("%s:", varname);
+        console.log ("===================================");
+        console.log ("%s", varvalue);
+        console.log ();
+    }
+}
+
+if (require.main == module) {
+    main ();
+}
 EOF
 
 chmod 775 announcement.node.commands.js

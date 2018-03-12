@@ -938,6 +938,7 @@ cat << EOF > startnode.sh
 # geth params:
 #  --networkid                       # as specified in genesis block
 #  --mine                            # start mining at startup
+#  --minerthreads                    # number of mining threads
 #  --datadir {node folder}           # private node folder root, where to store blockchain data
 #  --nodiscover                      # run isloated as peer-to-peer, do not look for network peers
 #  --rpc --rpcport {port number}     # enable the http rpc server and listening port
@@ -952,6 +953,7 @@ cat << EOF > startnode.sh
 # Start the node, begin mining
 geth --networkid $NETWORK_IDENTIFIER \\
      --mine \\
+     --minerthreads 2 \\
      --datadir $DATA_DIR \\
      --nodiscover \\
      --rpc \\

@@ -3,19 +3,8 @@
 ################################################################################
 # Module .... 02.nodejs.web3.solc.testrpc.deploy.test.sh                       #
 # Author .... Neil Simon                                                       #
-# Updated ... 02/12/2018                                                       #
+# Updated ... 03/12/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
-#------------------------------------------------------------------------------#
-# Overview:                                                                    #
-#   $ npm init                                                                 #
-#   $ npm install web3@0.20.0                                                  #
-#   $ npm install solc                                                         #
-#   $ npm install system-sleep                                                 #
-#   Creates smart contract: announcement.sol                                   #
-#   $ testrpc &                                                                #
-#   Creates node command file: announcement.node.commands.js                   #
-#   $ node announcement.node.commands.js                                       #
-#   $ kill -9 {testrpc pid}                                                    #
 ################################################################################
 
 # ex: 02.nodejs.web3.solc.testrpc.deploy.test.sh (remove prepended ./)
@@ -73,7 +62,7 @@ printf "\n"
 # Install npm dependency: solc                                                 #
 ################################################################################
 
-printf ">> Running: npm install solc\n"
+printf ">> Running: npm install solc@0.4.18\n"
 printf "npm install solc\n"
 npm install solc
 printf "\n"
@@ -93,8 +82,8 @@ printf "\n"
 
 printf ">> Creating smart contract: announcement.sol\n"
 cat << EOF > announcement.sol
-// solidity compiler must be at least v0.4.11
-pragma solidity ^0.4.11;
+// solidity compiler must be at least v0.4.18
+pragma solidity ^0.4.18;
 
 contract announcement {
     // Variable length

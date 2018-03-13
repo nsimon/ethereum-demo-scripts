@@ -62,7 +62,7 @@ printf "\n"
 # Install npm dependency: solc                                                 #
 ################################################################################
 
-printf ">> Running: npm install solc@0.4.18\n"
+printf ">> Running: npm install solc@0.4.19\n"
 printf "npm install solc\n"
 npm install solc
 printf "\n"
@@ -82,8 +82,8 @@ printf "\n"
 
 printf ">> Creating smart contract: announcement.sol\n"
 cat << EOF > announcement.sol
-// solidity compiler must be at least v0.4.18
-pragma solidity ^0.4.18;
+// solidity compiler must be at least v0.4.19
+pragma solidity ^0.4.19;
 
 contract announcement {
     // Variable length

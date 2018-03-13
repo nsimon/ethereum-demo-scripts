@@ -3,20 +3,8 @@
 ################################################################################
 # Module .... 03.truffle.testrpc.deploy.test.sh                                #
 # Author .... Neil Simon                                                       #
-# Updated ... 02/13/2018                                                       #
+# Updated ... 03/12/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
-#------------------------------------------------------------------------------#
-# Overview:                                                                    #
-#   Creates new contract folder structure on each run                          #
-#   $ truffle init                                                             #
-#   Removes unnecssary boilerplate                                             #
-#   Creates smart contract: announcement.sol                                   #
-#   Adds to migrations/2_deploy_contracts.js                                   #
-#   $ testrpc &                                                                #
-#   $ truffle migrate                                                          #
-#   Creates truffle command file: announcement.truffle.commands.js             #
-#   $ truffle exec announcement.truffle.commands.js  // RESULTS -> stdout      #
-#   $ kill -9 {testrpc pid}                                                    #
 ################################################################################
 
 # ex: 03.truffle.testrpc.deploy.test.sh (remove prepended ./)
@@ -62,23 +50,22 @@ printf "\n"
 truffle init
 
 ################################################################################
-# Remove unnecessary boilerplate                                               #
+# Overwrite truffle.js                                                         #
 ################################################################################
 
-printf ">> Removing unnecessary truffle boilerplate:\n"
+printf ">> Overwriting truffle.js\n"
+cat << EOF > truffle.js
+module.exports = {
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*"
+    }
+  }
+};
 
-printf "rm contracts/ConvertLib.sol\n"
-rm contracts/ConvertLib.sol
-
-printf "rm contracts/MetaCoin.sol\n"
-rm contracts/MetaCoin.sol
-
-printf "rm test/metacoin.js\n"
-rm test/metacoin.js
-
-printf "rm test/TestMetacoin.sol\n"
-rm test/TestMetacoin.sol
-
+EOF
 printf "\n"
 
 ################################################################################
@@ -87,8 +74,8 @@ printf "\n"
 
 printf ">> Creating smart contract: contracts/announcement.sol\n"
 cat << EOF > contracts/announcement.sol
-// solidity compiler must be at least v0.4.11
-pragma solidity ^0.4.11;
+// solidity compiler must be at least v0.4.18
+pragma solidity ^0.4.18;
 
 contract announcement {
     // Variable length
@@ -134,16 +121,16 @@ EOF
 printf "\n"
 
 ################################################################################
-# Start testrpc as a background task                                           #
+# Start ganache-cli as a background task                                       #
 ################################################################################
 
-printf ">> Starting testrpc as a background task:\n"
-printf "testrpc &\n"
+printf ">> Starting ganache-cli as a background task:\n"
+printf "ganache-cli &\n"
 printf "\n"
-testrpc &
-TESTRPC_PID=$!
+ganache-cli &
+GANACHE_CLI_PID=$!
 
-printf ">> Allow testrpc to fully load:\n"
+printf ">> Allow ganache-cli to fully load:\n"
 printf "sleep 3s\n"
 printf "\n"
 sleep 3s
@@ -188,7 +175,7 @@ module.exports = function (done) {
     console.log (announcementAddress);
     console.log ();
 
-    // Display the 10 testrpc accounts
+    // Display the 10 test accounts
     accounts = web3.eth.accounts;
     console.log ();
     console.log ("[truffle] web3.eth.accounts:");
@@ -251,13 +238,13 @@ printf "\n"
 truffle exec announcement.truffle.commands.js
 
 ################################################################################
-# Kill the testrpc running in the background                                   #
+# Kill the ganache-cli background task                                         #
 ################################################################################
 
-printf ">> Killing the testrpc background task:\n"
-printf "kill -9 $TESTRPC_PID\n"
+printf ">> Killing the ganache-cli background task:\n"
+printf "kill -9 $GANACHE_CLI_PID\n"
 printf "\n"
-kill -9 $TESTRPC_PID
+kill -9 $GANACHE_CLI_PID
 
 ################################################################################
 # End                                                                          #

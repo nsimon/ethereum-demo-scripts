@@ -50,7 +50,7 @@ printf "\n"
 npm init -f
 
 ################################################################################
-# Install npm dependency: web3 (v0.20.0)                                       #
+# Install local npm dependency: web3 (v0.20.0)                                 #
 ################################################################################
 
 printf ">> Running: npm install web3@0.20.0\n"
@@ -59,16 +59,16 @@ npm install web3@0.20.0
 printf "\n"
 
 ################################################################################
-# Install npm dependency: solc                                                 #
+# Install local npm dependency: solc (v0.4.18)                                 #
 ################################################################################
 
-printf ">> Running: npm install solc@0.4.19\n"
-printf "npm install solc\n"
-npm install solc
+printf ">> Running: npm install solc@0.4.18\n"
+printf "npm install solc@0.4.18\n"
+npm install solc@0.4.18
 printf "\n"
 
 ################################################################################
-# Install npm dependency: system-sleep                                         #
+# Install local npm dependency: system-sleep                                   #
 ################################################################################
 
 printf ">> Running: npm install system-sleep\n"
@@ -82,8 +82,8 @@ printf "\n"
 
 printf ">> Creating smart contract: announcement.sol\n"
 cat << EOF > announcement.sol
-// solidity compiler must be at least v0.4.19
-pragma solidity ^0.4.19;
+// solidity compiler must be at least v0.4.18
+pragma solidity ^0.4.18;
 
 contract announcement {
     // Variable length
@@ -114,16 +114,16 @@ EOF
 printf "\n"
 
 ################################################################################
-# Start testrpc as a background task                                           #
+# Start ganache-cli as a background task                                       #
 ################################################################################
 
-printf ">> Starting testrpc as a background task:\n"
-printf "testrpc &\n"
+printf ">> Starting ganache-cli as a background task:\n"
+printf "ganache-cli &\n"
 printf "\n"
-testrpc &
-TESTRPC_PID=$!
+ganache-cli &
+GANACHE_CLI_PID=$!
 
-printf ">> Allow testrpc to fully load:\n"
+printf ">> Allow ganache-cli to fully load:\n"
 printf "sleep 3s\n"
 printf "\n"
 sleep 3s
@@ -165,7 +165,7 @@ function main () {
     const web3 = new Web3 (new Web3.providers.HttpProvider ("http://localhost:8545"));
     display_results ("web3", web3);
 
-    // Display the 10 testrpc accounts
+    // Display the 10 test accounts
     const accounts = web3.eth.accounts;
     display_results ("accounts", accounts);
 
@@ -189,7 +189,7 @@ function main () {
     const announcementContract = web3.eth.contract (contractABI);
     display_results ("announcementContract", announcementContract);
 
-    // Deploy the smart contract to the testrpc blockchain
+    // Deploy the smart contract to the test blockchain
     const announcementDeployed = announcementContract.new ({data: byteCode, from: web3.eth.accounts [0], gas: 4700000});
     display_results ("announcementDeployed", announcementDeployed);
 
@@ -259,13 +259,13 @@ node announcement.node.commands.js
 printf "\n"
 
 ################################################################################
-# Kill the testrpc running in the background                                   #
+# Kill the ganache-cli task running in the background                          #
 ################################################################################
 
-printf ">> Killing the testrpc background task:\n"
-printf "kill -9 $TESTRPC_PID\n"
+printf ">> Killing the ganache-cli background task:\n"
+printf "kill -9 $GANACHE_CLI_PID\n"
 printf "\n"
-kill -9 $TESTRPC_PID
+kill -9 $GANACHE_CLI_PID
 
 ################################################################################
 # End                                                                          #

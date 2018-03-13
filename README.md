@@ -8,9 +8,9 @@ Each script logs to its own logfile, providing a detailed execution log.
 
 **Script 1**: Creates a local ethereum node structure and associated startnode.sh script to start the node.
 
-**Script 2**: Creates, deploys, and tests a smart contract with web3 and nodejs on a local testrpc node.
+**Script 2**: Creates, deploys, and tests a smart contract with web3 and nodejs on a local test node.
 
-**Script 3**: Creates, deploys, and tests a smart contract with truffle on a local testrpc node.
+**Script 3**: Creates, deploys, and tests a smart contract with truffle on a local test node.
 
 These ethereum-demo-scripts were tested in a bash shell on Ubuntu Linux 16.04.3 LTS. The scripts should also run in a Mac terminal, but has not been tested. Prerequisites are listed below.
 
@@ -55,20 +55,18 @@ geth (v1.7.2 tested)
   $ geth version  # verify the version
   ```
 
-testrpc (v4.1.3 tested)
-  * Limited, but helpful smart contract testing.
+ganache-cli (v6.1.0 tested)
   * Emulates an Ethereum node.
   * Written in nodejs.
   * Uses the ethereum.js library.
   * Runs in memory only (no disk storage).
-  * Doc: [testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)
+  * Doc: [ganache-cli](https://github.com/trufflesuite/ganache-cli)
 
   ```
-  $ sudo npm install -g ethereumjs-testrpc
-  $ testrpc version  # verify the version
+  $ sudo npm install -g ganache-cli
   ```
 
-truffle framework (v3.4.5 tested)
+truffle framework (v4.0.4 tested)
   * A build framework for smart contract development:
     * Write
     * Test
@@ -111,7 +109,7 @@ Overview:
 
 #### `02.nodejs.web3.solc.testrpc.deploy.test.sh`
 
-Creates, deploys, and tests a smart contract with **web3 and nodejs** on a local testrpc node.
+Creates, deploys, and tests a smart contract with **web3 and nodejs** on a local test node.
 
 Progress and output detail is logged.
 
@@ -119,13 +117,13 @@ Creates and runs a nodejs script that:
   * Loads module web3.
   * Loads module solc.
   * Creates a new instance of the web3 object.
-  * Displays the 10 default testrpc accounts.
+  * Displays the 10 default test accounts.
   * Loads the **announcement** smart contact source.
   * Compiles the smart contract to json.
   * Extract from the json: the smart contract ABI **application binary interface** (it's api).
   * Extract from the json: the smart contact byteCode, used to deploy the smart contract.
   * Instantiate the smart contract object ABI.
-  * Deploy the smart contract to the testrpc blockchain.
+  * Deploy the smart contract to the test blockchain.
     * Runs the smart contract constructor which sets the announcement message.
   * Displays the address of the deployed contract.
   * Gets a pointer to an instance of the deployed contract.
@@ -144,7 +142,7 @@ Creates and runs a nodejs script that:
 
 #### `03.truffle.testrpc.deploy.test.sh`
 
-Creates, deploys, and tests a smart contract with **truffle** on a local testrpc node.
+Creates, deploys, and tests a smart contract with **truffle** on a local test node.
 
 Progress and output detail is logged.
 
@@ -153,12 +151,12 @@ Overview:
   * Removes unnecssary truffle boilerplate.
   * Creates smart contract: announcement.sol.
   * Adds the smart contract to migrations/2_deploy_contracts.js.
-  * Runs testrpc as a background task.
+  * Runs ganache-cli as a background task.
   * Runs truffle migrate to deploy the smart contact.
   * Creates and runs a truffle exec script that:
     * Gets a pointer to the deployed contract.
     * Displays the contract address.
-    * Displays the 10 default testrpc accounts.
+    * Displays the 10 default test accounts.
     * Gets a pointer to the deployed contract instance.
       * Contract call: getAnnouncement():
         * Retrieves the original message that was set by the contructor.
@@ -166,7 +164,7 @@ Overview:
         * Updates the message with a new string.
       * Contract call: getAnnouncement():
         * Retrieves the updated message.
-  * Stops the testrpc background task.
+  * Stops the ganache-cli background task.
 
 #### `00.run_all.sh`
 

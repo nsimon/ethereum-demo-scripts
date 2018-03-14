@@ -7,7 +7,7 @@
 # Desc ...... Creates and deploys smart contract, updates state                #
 ################################################################################
 
-# ex: 02.nodejs.web3.solc.testrpc.deploy.test.sh (remove prepended ./)
+# ex: 02.nodejs.web3.solc.testrpc.deploy.test.sh
 SCRIPTNAME=${0:2}
 
 # ex: 01/16/2018 18:06:17

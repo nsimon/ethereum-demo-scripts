@@ -3,11 +3,11 @@
 ################################################################################
 # Module .... 03.truffle.testrpc.deploy.test.sh                                #
 # Author .... Neil Simon                                                       #
-# Updated ... 03/12/2018                                                       #
+# Updated ... 03/13/2018                                                       #
 # Desc ...... Creates and deploys smart contract, updates state                #
 ################################################################################
 
-# ex: 03.truffle.testrpc.deploy.test.sh (remove prepended ./)
+# ex: 03.truffle.testrpc.deploy.test.sh
 SCRIPTNAME=${0:2}
 
 # ex: 01/16/2018 18:06:17
